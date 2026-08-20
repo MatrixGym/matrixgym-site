@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Matrix Fitness</title>
+
+        <script>
+            (() => {
+                const stored = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.classList.toggle('dark', stored ? stored === 'dark' : prefersDark);
+            })();
+        </script>
+
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
+
+        <link rel="preload" as="style" href="https://matrixgym.github.io/matrixgym-site/build/assets/app-BBkTyx95.css" /><link rel="modulepreload" as="script" href="https://matrixgym.github.io/matrixgym-site/build/assets/app-Cchrjnfe.js" /><link rel="stylesheet" href="https://matrixgym.github.io/matrixgym-site/build/assets/app-BBkTyx95.css" /><script type="module" src="https://matrixgym.github.io/matrixgym-site/build/assets/app-Cchrjnfe.js"></script>    </head>
+    <body class="font-sans antialiased" x-data>
+        <div class="fixed left-0 top-0 z-50 h-1 bg-orange-500 transition-[width] duration-150" style="width: 0" data-scroll-progress></div>
+        <div class="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#05070b] dark:text-slate-100">
+            <nav x-data="{ open: false }" class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 text-slate-950 backdrop-blur dark:border-white/10 dark:bg-[#05070b]/90 dark:text-white">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-8"><a href="https://matrixgym.github.io/matrixgym-site/"><img src="https://matrixgym.github.io/matrixgym-site/images/brand/logo.png" alt="Matrix Fitness" class="h-10 w-auto"></a>
+<div class="hidden items-center gap-6 md:flex">
+<a class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium leading-5 text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/classes">
+    Schedule
+</a>
+<a class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium leading-5 text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/trainers">
+    Coaching
+</a>
+<a class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium leading-5 text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/memberships">
+    Plans
+</a>
+<a class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium leading-5 text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/about">
+    About
+</a>
+<a class="inline-flex items-center border-b-2 border-orange-500 px-1 pt-1 text-sm font-medium leading-5 text-slate-950 transition duration-150 ease-in-out focus:outline-none dark:border-orange-300 dark:text-white" href="https://matrixgym.github.io/matrixgym-site/contact">
+    Contact
+</a>
+</div></div>
+<div class="hidden items-center gap-3 md:flex">
+<button type="button" @click="$store.theme.toggle()" class="rounded-md border border-slate-200 px-3 py-2 text-sm dark:border-white/15"><span x-text="$store.theme.dark ? 'Light' : 'Dark'"></span></button>
+<a href="https://wa.me/212671911067" class="inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 bg-slate-100 text-slate-950 hover:bg-white focus:ring-slate-200 focus:ring-offset-slate-950" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+    </a>
+</div>
+<button type="button" @click="open = !open" class="md:hidden"><span class="sr-only">Open menu</span><span class="block h-0.5 w-6 bg-slate-950 dark:bg-white"></span><span class="mt-1.5 block h-0.5 w-6 bg-slate-950 dark:bg-white"></span><span class="mt-1.5 block h-0.5 w-6 bg-slate-950 dark:bg-white"></span></button>
+</div></div>
+<div x-show="open" x-cloak class="border-t border-slate-200 px-4 py-3 dark:border-white/10 md:hidden"><div class="space-y-2">
+<a class="block w-full border-l-4 border-transparent py-2 pe-4 ps-3 text-start text-base font-medium text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:bg-white/10 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/classes">
+    Schedule
+</a>
+<a class="block w-full border-l-4 border-transparent py-2 pe-4 ps-3 text-start text-base font-medium text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:bg-white/10 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/trainers">
+    Coaching
+</a>
+<a class="block w-full border-l-4 border-transparent py-2 pe-4 ps-3 text-start text-base font-medium text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:bg-white/10 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/memberships">
+    Plans
+</a>
+<a class="block w-full border-l-4 border-transparent py-2 pe-4 ps-3 text-start text-base font-medium text-slate-600 transition duration-150 ease-in-out hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950 focus:outline-none dark:text-slate-300 dark:hover:border-white/30 dark:hover:bg-white/10 dark:hover:text-white" href="https://matrixgym.github.io/matrixgym-site/about">
+    About
+</a>
+<a class="block w-full border-l-4 border-orange-500 bg-orange-50 py-2 pe-4 ps-3 text-start text-base font-medium text-slate-950 transition duration-150 ease-in-out focus:outline-none dark:border-orange-300 dark:bg-white/10 dark:text-white" href="https://matrixgym.github.io/matrixgym-site/contact">
+    Contact
+</a>
+<a href="https://wa.me/212671911067" target="_blank" rel="noopener noreferrer" class="block rounded-md bg-emerald-600 px-3 py-2 text-center text-sm font-semibold text-white">Chat on WhatsApp</a>
+</div></div>
+</nav>
+
+
+            <main>
+                <section class="bg-[#05070b] px-4 py-20 text-white sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center">
+            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ring-1 bg-white/10 text-white ring-white/15">
+    Contact
+</span>
+            <h1 class="mt-6 text-5xl font-semibold leading-tight">Visit Matrix Fitness.</h1>
+            <p class="mt-6 text-lg leading-8 text-slate-300">Find the gym in Karia, Salé, or contact us directly by phone or WhatsApp.</p>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 px-4 py-16 dark:bg-[#080b12] sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl space-y-6">
+            <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+                <div class="rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm dark:border-white/10 dark:bg-white/[0.05] dark:text-white p-6">
+    <p class="text-xs font-semibold uppercase text-orange-600 dark:text-orange-300">Club contact</p>
+                    <h2 class="mt-2 text-2xl font-semibold">Matrix Fitness</h2>
+                    <div class="mt-6 space-y-5 text-sm text-slate-600 dark:text-slate-300">
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">Address</p>
+                            <p class="mt-1 leading-6">AV. AL Alaouiyine<br>Karia, Salé, Morocco</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">Fixed phone</p>
+                            <a href="tel:+212537535302" class="mt-1 inline-block hover:text-orange-600">+212 537-535302</a>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">WhatsApp</p>
+                            <a href="https://wa.me/212671911067" target="_blank" rel="noopener noreferrer" class="mt-1 inline-block font-semibold text-emerald-600 hover:text-emerald-700">+212 671-911067</a>
+                        </div>
+                    </div>
+                    <div class="mt-8 grid gap-3">
+                        <a href="https://www.google.com/maps/place/MATRIX+FITNESS/@34.0161839,-6.7641314,6163m/data=!3m1!1e3!4m6!3m5!1s0xda76bd9163af45b:0xa364f9fc5e236d79!8m2!3d34.0161174!4d-6.7715737!16s%2Fg%2F11nv15_x8s?entry=ttu" class="inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 bg-orange-600 text-white hover:bg-orange-500 focus:ring-orange-500 focus:ring-offset-slate-950" target="_blank" rel="noopener noreferrer">
+        Get directions
+    </a>
+                        <a href="https://wa.me/212671911067" class="inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 border border-slate-300 bg-white text-slate-900 hover:border-slate-400 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/15" target="_blank" rel="noopener noreferrer">
+        Chat on WhatsApp
+    </a>
+                    </div>
+</div>
+
+                <div class="rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm dark:border-white/10 dark:bg-white/[0.05] dark:text-white overflow-hidden">
+    <iframe
+                        title="Matrix Fitness location on Google Maps"
+                        src="https://www.google.com/maps?q=34.0161174,-6.7715737&z=17&output=embed"
+                        class="h-[32rem] w-full border-0"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+</div>
+            </div>
+        </div>
+    </section>
+            </main>
+        </div>
+    </body>
+</html>
