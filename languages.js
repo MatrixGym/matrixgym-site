@@ -4,9 +4,9 @@ const dictionary = new Map(rows.map(([en, fr, ar]) => [en, { en, fr, ar }]));
 dictionary.set("Every membership gives access to Matrix Fitness cardio and musculation during the published women&rsquo;s or men&rsquo;s hours.", dictionary.get("Every membership gives access to Matrix Fitness cardio and musculation during the published women’s or men’s hours."));
 const originals = new WeakMap();
 const normalize = value => value.replace(/\s+/g, ' ').trim();
-let language = 'en';
-try { language = localStorage.getItem('matrix-language') || 'en'; } catch {}
-if (!['en', 'fr', 'ar'].includes(language)) language = 'en';
+let language = 'fr';
+try { language = localStorage.getItem('matrix-language') || 'fr'; } catch {}
+if (!['en', 'fr', 'ar'].includes(language)) language = 'fr';
 const excluded = 'script, style, noscript, textarea, [data-language-picker], [translate="no"]';
 function translateValue(value, previous) {
     const key = normalize(value);
@@ -74,5 +74,6 @@ function start() {
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
 else start();
 })();
+
 
 
