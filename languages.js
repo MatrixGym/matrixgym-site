@@ -45,16 +45,23 @@ function applyLanguage() {
 function start() {
     const picker = document.createElement('div');
     picker.dataset.languagePicker = '';
-    picker.innerHTML = '<select aria-label="Choose language"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="ar" lang="ar">العربية</option></select>';
+    picker.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></svg><select aria-label="Choose language"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="ar" lang="ar">العربية</option></select>';
     const navigation = document.querySelector('nav');
-    (navigation || document.body).prepend(picker);
+    const themeButton = navigation && Array.from(navigation.querySelectorAll('button')).find(button => (button.getAttribute('@click') || '').includes('$store.theme.toggle()'));
+    if (themeButton) {
+        themeButton.dataset.themeToggle = '';
+        themeButton.parentElement.dataset.navControls = '';
+        themeButton.after(picker);
+    } else {
+        (navigation || document.body).append(picker);
+    }
     picker.querySelector('select').addEventListener('change', event => {
         language = event.target.value;
         try { localStorage.setItem('matrix-language', language); } catch {}
         applyLanguage();
     });
     const styles = document.createElement('style');
-    styles.textContent = '[data-language-picker]{display:flex;justify-content:flex-end;padding:.45rem 1rem;background:#111827;color:white}[data-language-picker] select{font:inherit;font-size:14px;background:#111827;color:white;border:1px solid #64748b;border-radius:6px;padding:.35rem 2rem .35rem .6rem;min-width:115px}[data-language-picker] select:focus-visible{outline:2px solid #fb923c;outline-offset:2px}html[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}html[dir="rtl"] .text-left{text-align:right}html[dir="rtl"] .uppercase{letter-spacing:normal}a[href^="tel:"],a[href^="https://wa.me/"]{unicode-bidi:isolate}html[dir="rtl"] a[href^="tel:"],html[dir="rtl"] a[href^="https://wa.me/"]{direction:ltr}html[dir="rtl"] td{unicode-bidi:plaintext}';
+    styles.textContent = '[data-nav-controls]{display:flex;align-items:center;gap:.75rem}[data-language-picker]{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;flex-shrink:0;border:1px solid #cbd5e1;border-radius:6px;color:inherit}[data-language-picker] svg{width:21px;height:21px;pointer-events:none}[data-language-picker] select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}[data-language-picker]:focus-within{outline:2px solid #fb923c;outline-offset:2px}[data-language-picker]:hover{background:rgba(148,163,184,.15)}.dark [data-language-picker]{border-color:rgba(255,255,255,.15)}@media(max-width:767px){[data-nav-controls]{margin-inline-start:auto;margin-inline-end:.75rem;gap:.4rem}[data-nav-controls]>:not([data-theme-toggle]):not([data-language-picker]){display:none}}html[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}html[dir="rtl"] .text-left{text-align:right}html[dir="rtl"] .uppercase{letter-spacing:normal}a[href^="tel:"],a[href^="https://wa.me/"]{unicode-bidi:isolate}html[dir="rtl"] a[href^="tel:"],html[dir="rtl"] a[href^="https://wa.me/"]{direction:ltr}html[dir="rtl"] td{unicode-bidi:plaintext}';
     document.head.append(styles);
     applyLanguage();
     new MutationObserver(records => {
